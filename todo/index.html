@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Todo List</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Montserrat:wght@500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+
+<body>
+
+    <header class="pageHeader">
+        <div class="logo">
+            <i class="fa-solid fa-list-check"></i>
+            <span>TODO.</span>
+        </div>
+
+        <p class="subtitle">Make today count.</p>
+    </header>
+
+    <main>
+
+        <form id="todoForm">
+            <label for="todoInput">What needs to get done?</label>
+
+            <div class="inputContainer">
+                <textarea
+                    id="todoInput"
+                    placeholder="Write your next task..."
+                    rows="2"
+                    required
+                ></textarea>
+
+                <button type="submit" id="addBtn">
+                    <i class="fa-solid fa-plus"></i>
+                    <span>Add Task</span>
+                </button>
+            </div>
+        </form>
+
+        <section class="statsSection">
+
+            <div class="sectionHeading">
+                <div>
+                    <h2>Your Overview</h2>
+                    <p>Small steps lead to big results.</p>
+                </div>
+
+                <i class="fa-solid fa-chart-simple headingIcon"></i>
+            </div>
+
+            <div class="stats">
+
+                <div class="statCard">
+                    <div class="statIcon totalIcon">
+                        <i class="fa-solid fa-layer-group"></i>
+                    </div>
+
+                    <span class="statNumber" id="totalCount">0</span>
+                    <p>Total Tasks</p>
+                </div>
+
+                <div class="statCard">
+                    <div class="statIcon completedIcon">
+                        <i class="fa-solid fa-check"></i>
+                    </div>
+
+                    <span class="statNumber" id="completedCount">0</span>
+                    <p>Completed</p>
+                </div>
+
+                <div class="statCard">
+                    <div class="statIcon remainingIcon">
+                        <i class="fa-regular fa-clock"></i>
+                    </div>
+
+                    <span class="statNumber" id="remainingCount">0</span>
+                    <p>Remaining</p>
+                </div>
+
+            </div>
+
+            <div class="progressContainer">
+
+                <div class="progressInfo">
+                    <span>Overall Progress</span>
+                    <span id="progressText">0%</span>
+                </div>
+
+                <div
+                    class="progressBar"
+                    role="progressbar"
+                    aria-label="Task completion progress"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                    aria-valuenow="0"
+                    id="progressBar"
+                >
+                    <div id="progressFill"></div>
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="tasksSection">
+
+            <div class="sectionHeading">
+                <div>
+                    <h2>My Tasks</h2>
+                    <p>Keep your focus on what matters.</p>
+                </div>
+            </div>
+
+            <div class="filterContainer">
+
+                <button
+                    type="button"
+                    class="filterBtn active"
+                    data-filter="all"
+                    aria-pressed="true"
+                >
+                    All
+                </button>
+
+                <button
+                    type="button"
+                    class="filterBtn"
+                    data-filter="active"
+                    aria-pressed="false"
+                >
+                    Active
+                </button>
+
+                <button
+                    type="button"
+                    class="filterBtn"
+                    data-filter="completed"
+                    aria-pressed="false"
+                >
+                    Completed
+                </button>
+
+            </div>
+
+            <div class="todoContainer" id="todoContainer"></div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Built with <i class="fa-solid fa-heart"></i> for someone</p>
+    </footer>
+
+    <script src="index.js"></script>
+
+</body>
+</html>
